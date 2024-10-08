@@ -62,17 +62,17 @@ bool File::operator<(const File& rhs) const {
       bool hasPeriod = false;
       for(int i = 0; i < filename.size(); i++)
       {
-         if(isalpha(filename[i]) != true)
+         if (!isalnum(filename[i]))
          {
-            if(filename[i] == '.')
+            // if(filename[i] == '.')
+            // {
+            if (hasPeriod == true)
             {
-               if(hasPeriod == true)
-               {     
-                 throw InvalidFormatException();
+               throw InvalidFormatException();
                }
                else
                   hasPeriod = true;
-            }
+               //}
          }
       }   
       if(hasPeriod == true)
