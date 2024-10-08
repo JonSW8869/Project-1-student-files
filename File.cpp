@@ -104,10 +104,10 @@ bool File::operator<(const File& rhs) const {
        */
       File::File(const File& rhs){
          contents_ = rhs.contents_;
-         icon_ = rhs.icon_;
+         icon_ = new int;
          //*icon_ = *(rhs.icon_);
+         icon_ = rhs.icon_;
          filename_ = rhs.filename_;
-
       }
       /**
        * @brief (COPY ASSIGNMENT) Replaces the calling File's data members using a deep copy of the rhs File.
@@ -120,8 +120,9 @@ bool File::operator<(const File& rhs) const {
          if(this != &rhs)
          {
             contents_ = rhs.contents_;
+            icon_ = new int;
             icon_ = rhs.icon_;
-         //*icon_ = *(rhs.icon_);
+            //*icon_ = *(rhs.icon_);
             filename_ = rhs.filename_;
          }
          return *this;
