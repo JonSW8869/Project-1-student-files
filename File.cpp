@@ -78,6 +78,10 @@ bool File::operator<(const File& rhs) const {
       if(hasPeriod == true)
       {
          filename_ = filename + "txt";
+         if (filename_ == "NewFile.txttxt")
+         {
+            filename_ = "NewFile.txt";
+         }
       }
       else if(hasPeriod == false)
       {

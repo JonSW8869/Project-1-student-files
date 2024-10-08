@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main(){
-    File file = File("hello!.", "content");
+    File file = File();
     File test = File(file);
     // std::cout << file1.getName();
     // std::cout << file1.getContents();
