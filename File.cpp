@@ -145,7 +145,7 @@ size_t File::getSize() const
  */
 File::File(const File &rhs)
 {
-   if (rhs.getIcon() != nullptr)
+   if (rhs.getIcon())
    {
       icon_ = new int;
       *icon_ = *rhs.getIcon();
