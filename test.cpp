@@ -27,11 +27,17 @@
 
 int main(){
     // File file = File("symbol!txt"); // throw error
+    File file = File("hello");
     File file1 = File("also.f1n3");
+    Folder folder = Folder("Name");
+    folder.addFile(file);
+
     // File test = File(file);
-    std::cout << file1.getName() << std::endl;
-    std::cout << file1.getContents() << std::endl;
-    std::cout << file1.getIcon() << std::endl;
+    // std::cout << file1.getName() << std::endl;
+    // std::cout << file1.getContents() << std::endl;
+    // std::cout << file1.getIcon() << std::endl;
+    // folder.addFile(file);
+    folder.display();
 
     // std::cout << file.getContents();
     //  std::cout << test.getName() << std::endl;

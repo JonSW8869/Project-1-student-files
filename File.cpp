@@ -151,8 +151,8 @@ size_t File::getSize() const
  */
 File::File(const File &rhs)
 {
-   icon_ = new int;
-   *icon_ = *rhs.getIcon();
+   icon_ = new int{*rhs.getIcon()};
+   //*icon_ = *rhs.getIcon();
    filename_ = rhs.getName();
    contents_ = rhs.getContents();
 }
@@ -167,10 +167,10 @@ File &File::operator=(const File &rhs)
 {
    if (this != &rhs)
    {
-      contents_ = rhs.getContents();
+      contents_ = rhs.contents_;
       delete[] icon_;
-      *icon_ = *rhs.getIcon();
-      filename_ = rhs.getName();
+      *icon_ = *rhs.icon_;
+      filename_ = rhs.filename_;
    }
    return *this;
 }

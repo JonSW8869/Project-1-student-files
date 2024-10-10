@@ -80,7 +80,7 @@ void Folder::display() {
       size_t total = 0;
       for(int i = 0; i < files_.size(); i++)
       {
-         total++;
+         total += files_[i].getSize();
       }
       return total;
      }
@@ -93,25 +93,37 @@ void Folder::display() {
        * @return True if the file was added successfully. False otherwise.
        * @post If the file was added, leaves the parameter File object in a valid but unspecified state
        */
-      bool Folder::addFile(File& new_file){
-         if(new_file.getName() == "")
-         {
-            return false;
-         }
-         for(int i = 0; i < getSize(); i++)
-         {
-            if(files_[i].getName() == new_file.getName())
-            {
-               return false;
-            }
-            else
-            {
-               files_.push_back(new_file);
-               return true;
-            }
-         }
-         return false;
-      }
+     bool Folder::addFile(File &new_file)
+     {
+        for (int i = 0; i < files_.size(); i++)
+        {
+           if (files_[i].getName() != new_file.getName())
+           {
+              File temp = std::move(new_file);
+              files_.push_back(temp);
+              return true;
+           }
+           return false;
+        }
+
+        // if(new_file.getName() == "")
+        // {
+        //    return false;
+        // }
+        // for(int i = 0; i < getSize(); i++)
+        // {
+        //    if(files_[i].getName() == new_file.getName())
+        //    {
+        //       return false;
+        //    }
+        //    else
+        //    {
+        //       files_.push_back(new_file);
+        //       return true;
+        //    }
+        // }
+        // return false;
+     }
 
       /**
        * @brief Searches for a file within the files_ vector to be deleted.
