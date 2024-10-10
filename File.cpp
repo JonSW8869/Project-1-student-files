@@ -153,9 +153,11 @@ File::File(const File &rhs)
 {
    filename_ = rhs.getName();
    contents_ = rhs.getContents();
-   if (rhs.getIcon() != nullptr)
+   if (rhs.getIcon())
    {
-      icon_ = rhs.icon_;
+      icon_ = new int[ICON_DIM];
+      for (int i = 0; i < ICON_DIM; i++)
+         icon_[i] = rhs.icon_[i];
    }
    else
    {
