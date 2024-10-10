@@ -154,7 +154,7 @@ File::File(const File &rhs)
    if (rhs.getIcon())
    {
       icon_ = new int;
-      std::copy(rhs.icon_, rhs.icon_ + ICON_DIM, icon_);
+      *icon_ = *rhs.getIcon();
    }
    else
       icon_ = nullptr;
