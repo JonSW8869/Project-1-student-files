@@ -79,9 +79,10 @@ void Folder::display() {
 size_t Folder::getSize() const
 {
    size_t total = 0;
-   for (int i = 0; i < files_.size(); i++)
+   for (auto it = files_.begin(); it != files_.end(); ++it)
    {
-      total += files_[i].getSize();
+      File temp = *it;
+      total += temp.getSize();
    }
    return total;
 }
@@ -100,13 +101,12 @@ size_t Folder::getSize() const
         {
            if (files_[i].getName() != new_file.getName())
            {
-              File temp = File(new_file);
-              files_.push_back(temp);
+              // File temp = File(new_file);
+              files_.push_back(new_file);
               return true;
            }
-           return false;
         }
-
+        return false;
         // if(new_file.getName() == "")
         // {
         //    return false;
