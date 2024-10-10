@@ -76,15 +76,16 @@ void Folder::display() {
       * @brief Iterate through the files vector, calculating the total size of all child files
       * @return size_t The total size of all child files
       */
-     int Folder::getSize() const{
-      size_t total = 0;
-      for(int i = 0; i < files_.size(); i++)
-      {
-         total += files_[i].getSize();
-      }
-      return total;
-     }
-      
+size_t Folder::getSize() const
+{
+   size_t total = 0;
+   for (int i = 0; i < files_.size(); i++)
+   {
+      total += files_[i].getSize();
+   }
+   return total;
+}
+
       /**
       * @brief Appends the given file to the files_ vector using move_semantics on the parameter File object, if a file with the same name does not exist within the files_ vector
        *    (HINT!) Consider push_back(). What happens when we give it an l-value vs. an r-value? Does it change anything?
