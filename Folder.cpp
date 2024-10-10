@@ -81,7 +81,7 @@ size_t Folder::getSize() const
    size_t total = 0;
    for (auto it = files_.begin(); it != files_.end(); ++it)
    {
-      File temp = *it;
+      File temp = File(*it);
       total += temp.getSize();
    }
    return total;
