@@ -177,9 +177,16 @@ File &File::operator=(const File &rhs)
    {
       filename_ = rhs.getName();
       contents_ = rhs.getContents();
-      // delete[] icon_;
-      for (int i = 0; i < ICON_DIM; i++)
-         icon_[i] = rhs.icon_[i];
+      if (rhs.getIcon())
+      {
+         icon_ = new int[ICON_DIM];
+         for (int i = 0; i < ICON_DIM; i++)
+            icon_[i] = rhs.icon_[i];
+      }
+      else
+      {
+         icon_ = nullptr;
+      }
    }
    return *this;
 }
