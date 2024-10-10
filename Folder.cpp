@@ -99,7 +99,7 @@ void Folder::display() {
         {
            if (files_[i].getName() != new_file.getName())
            {
-              File temp = std::move(new_file);
+              File temp = File(new_file);
               files_.push_back(temp);
               return true;
            }

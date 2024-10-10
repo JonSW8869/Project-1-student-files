@@ -151,10 +151,17 @@ size_t File::getSize() const
  */
 File::File(const File &rhs)
 {
-   icon_ = new int{*rhs.getIcon()};
-   //*icon_ = *rhs.getIcon();
    filename_ = rhs.getName();
    contents_ = rhs.getContents();
+   if (rhs.getIcon())
+   {
+      icon_ = new int;
+      *icon_ = *rhs.getIcon();
+   }
+   else
+   {
+      icon_ = nullptr;
+   }
 }
 /**
  * @brief (COPY ASSIGNMENT) Replaces the calling File's data members using a deep copy of the rhs File.
@@ -168,7 +175,7 @@ File &File::operator=(const File &rhs)
    if (this != &rhs)
    {
       contents_ = rhs.contents_;
-      delete[] icon_;
+      delete icon_;
       *icon_ = *rhs.icon_;
       filename_ = rhs.filename_;
    }
