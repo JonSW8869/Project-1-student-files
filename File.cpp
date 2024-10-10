@@ -153,12 +153,13 @@ File::File(const File &rhs)
 {
    if (rhs.getIcon())
    {
-      icon_ = new int;
+      delete[] icon_;
       *icon_ = *rhs.getIcon();
    }
    else
+   {
       icon_ = nullptr;
-
+   }
    filename_ = rhs.getName();
    contents_ = rhs.getContents();
 }
