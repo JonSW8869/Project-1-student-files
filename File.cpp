@@ -153,8 +153,8 @@ File::File(const File &rhs)
    else
       icon_ = nullptr;
 
-   filename_ = rhs.filename_;
-   contents_ = rhs.contents_;
+   filename_ = rhs.getName();
+   contents_ = rhs.getContents();
 }
 /**
  * @brief (COPY ASSIGNMENT) Replaces the calling File's data members using a deep copy of the rhs File.
@@ -167,10 +167,10 @@ File &File::operator=(const File &rhs)
 {
    if (this != &rhs)
    {
-      contents_ = rhs.contents_;
+      contents_ = rhs.getContents();
       delete[] icon_;
       *icon_ = *rhs.getIcon();
-      filename_ = rhs.filename_;
+      filename_ = rhs.getName();
    }
    return *this;
 }
