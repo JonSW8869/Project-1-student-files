@@ -27,7 +27,7 @@
 
 int main(){
     // File file = File("symbol!txt"); // throw error
-    File file1 = File(".env");
+    File file1 = File("also.f1n3");
     // File test = File(file);
     std::cout << file1.getName() << std::endl;
     std::cout << file1.getContents() << std::endl;

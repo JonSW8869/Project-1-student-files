@@ -91,6 +91,7 @@ File::File(const std::string &filename, const std::string &contents, int *icon)
 
    bool hasPeriod = false;
    bool atStart = false;
+   bool atEnd = false;
    for (int i = 0; i < filename.size(); i++)
    {
       if (filename[i] == '.')
@@ -99,6 +100,10 @@ File::File(const std::string &filename, const std::string &contents, int *icon)
          if (i == 0)
          {
             atStart = true;
+         }
+         if (i == filename.size())
+         {
+            atEnd = true;
          }
          break;
       }
@@ -112,7 +117,12 @@ File::File(const std::string &filename, const std::string &contents, int *icon)
             filename_ = filename;
          }
          else
-            filename_ = filename + "txt";
+         {
+            if (atEnd == true)
+               filename_ = filename + "txt";
+            else
+               filename_ = filename;
+         }
       }
       else if (hasPeriod == false)
       {
