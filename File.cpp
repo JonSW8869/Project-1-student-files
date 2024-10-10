@@ -153,7 +153,7 @@ File::File(const File &rhs)
 {
    filename_ = rhs.getName();
    contents_ = rhs.getContents();
-   if (rhs.getIcon())
+   if (rhs.getIcon() != nullptr)
    {
       icon_ = rhs.icon_;
    }
