@@ -30,6 +30,11 @@ int main(){
     File file = File("hello", "content");
     // File file1 = File("also.f1n3");
     File file2 = File(file);
+
+    std::cout << file.getName() << std::endl;
+    std::cout << file.getContents() << std::endl;
+    std::cout << file.getIcon() << std::endl;
+
     std::cout << file2.getName() << std::endl;
     std::cout << file2.getContents() << std::endl;
     std::cout << file2.getIcon() << std::endl;

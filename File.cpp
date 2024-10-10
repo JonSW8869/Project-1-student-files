@@ -155,8 +155,7 @@ File::File(const File &rhs)
    contents_ = rhs.getContents();
    if (rhs.getIcon())
    {
-      icon_ = new int;
-      *icon_ = *rhs.getIcon();
+      icon_ = rhs.icon_;
    }
    else
    {
@@ -174,10 +173,10 @@ File &File::operator=(const File &rhs)
 {
    if (this != &rhs)
    {
-      contents_ = rhs.contents_;
+      filename_ = rhs.getName();
+      contents_ = rhs.getContents();
       delete icon_;
-      *icon_ = *rhs.icon_;
-      filename_ = rhs.filename_;
+      icon_ = rhs.getIcon();
    }
    return *this;
 }
