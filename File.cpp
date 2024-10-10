@@ -57,7 +57,7 @@ bool checkValid(const std::string &filename)
    // check for more than one non alnum that is not a '.'
    for (int i = 0; i < filename.size(); i++)
    {
-      if (!isalnum(filename[i]) || otherCount >= 1)
+      if (!isalnum(filename[i]) && filename[i] != '.' || otherCount >= 1)
       {
          return false;
       }
@@ -109,7 +109,7 @@ File::File(const std::string &filename, const std::string &contents, int *icon)
       {
          if (atStart == true)
          {
-            filename_ = "NewFile" + filename;
+            filename_ = filename;
          }
          else
             filename_ = filename + "txt";
