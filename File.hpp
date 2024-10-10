@@ -50,26 +50,25 @@ class File {
        * @brief Sets the value of icon_ to the given parameter. De-allocates the previous array if necessary.
        * @param new_icon A pointer to a length 256 (ie. ICON_DIM) array of unsigned 8 bit integers
        */
-      void setIcon(int* new_icon); 
+      void setIcon(int* new_icon);
 
-      //                       DO NOT EDIT ABOVE THIS LINE. 
+      //                       DO NOT EDIT ABOVE THIS LINE.
       //                  (with exceptions to include statements)
       // =========================== YOUR CODE HERE ===========================
-      
       /**
-      * @brief Constructs a new File object.
-      * 
-      * @param filename A const reference to a string containing alphanumeric characters and exactly one period in the format "filename" or "filename.extension"
-      *    - If the string contains any non-alphanumeric characters besides *exactly_one* period an InvalidFormatException is thrown
-      *    - If no extension is provided (e.g. there is no period within the provided filename) or nothing follows the period, then ".txt" is used as the extension
-      *    - Default value of "NewFile.txt" if none provided or if filename is empty 
-      * @param contents A string representing the contents of the file. Default to empty string if none provided.
-      * @param icon A pointer to an integer array with length ICON_DIM. Default to nullptr if none provided.
-      * @throws InvalidFormatException - An error that occurs if the filename is not valid by the above constraints.
-      * @note You'll notice we provide a default value for the first possible argument (filename)
-      *       Yes, this means we can define override the default constructor and define a parameterized one simultaneously.
-      */
-     File(const std::string &filename = "NewFile.txt",const std::string &contents = "",  int *icon = nullptr);
+       * @brief Constructs a new File object.
+       *
+       * @param filename A const reference to a string containing alphanumeric characters and exactly one period in the format "filename" or "filename.extension"
+       *    - If the string contains any non-alphanumeric characters besides *exactly_one* period an InvalidFormatException is thrown
+       *    - If no extension is provided (e.g. there is no period within the provided filename) or nothing follows the period, then ".txt" is used as the extension
+       *    - Default value of "NewFile.txt" if none provided or if filename is empty
+       * @param contents A string representing the contents of the file. Default to empty string if none provided.
+       * @param icon A pointer to an integer array with length ICON_DIM. Default to nullptr if none provided.
+       * @throws InvalidFormatException - An error that occurs if the filename is not valid by the above constraints.
+       * @note You'll notice we provide a default value for the first possible argument (filename)
+       *       Yes, this means we can define override the default constructor and define a parameterized one simultaneously.
+       */
+      File(const std::string &filename = "NewFile.txt", const std::string &contents = "", int *icon = nullptr);
 
       /**
       * @brief Calculates and returns the size of the File Object (IN BYTES), using .size()

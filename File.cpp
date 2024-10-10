@@ -49,6 +49,7 @@ bool checkValid(const std::string &filename)
 {
    bool hasOne = false;
    int periodCount = std::count(filename.begin(), filename.end(), '.');
+   int otherCount = std::count(filename.begin(), filename.end(), '!');
    if (periodCount > 1)
    {
       return false;
@@ -56,14 +57,9 @@ bool checkValid(const std::string &filename)
    // check for more than one non alnum that is not a '.'
    for (int i = 0; i < filename.size(); i++)
    {
-      if (!isalnum(filename[i]) || filename[i] == '!')
+      if (!isalnum(filename[i]) || otherCount >= 1)
       {
-         if (hasOne == true)
-         {
-            return false;
-         }
-         else
-            hasOne = true;
+         return false;
       }
       return true;
    }
@@ -148,7 +144,7 @@ File::File(const File &rhs)
    if (rhs.getIcon())
    {
       icon_ = new int;
-      *icon_ = *rhs.getIcon();
+      std::copy(rhs.icon_, rhs.icon_ + ICON_DIM, icon_);
    }
    else
       icon_ = nullptr;
