@@ -150,17 +150,21 @@ size_t Folder::getSize() const
        * @return True if the file was moved successfully. False otherwise.
        */
       bool Folder::moveFileTo(const std::string& name, Folder& destination){
-         for(int i = 0; i < destination.getSize(); i++)
-         {
-            if(destination.files_[i].getName() == name)
-            {
-               destination.files_[i] = files_[i];
-            }
-            else
-            {
-
-            }
-         }
+         // matching name
+         // if (files_ == destination.files_)
+         // {
+         //    return true;
+         // }
+         // for (auto it = destination.files_.begin(); it != destination.files_.end(); ++it)
+         // {
+         //    if (it->getName() == name)
+         //    {
+         //       File temp = File(name);
+         //       destination.addFile(temp);
+         //       removeFile(name);
+         //       return true;
+         //    }
+         // }
          return true;
       }
 
@@ -177,5 +181,24 @@ size_t Folder::getSize() const
          * @return True if the file was copied successfully. False otherwise.
          */
         bool Folder::copyFileTo(const std::string& name, Folder& destination){
-         return true;
+           //   bool match = false;
+           //   for (auto it = destination.files_.begin(); it != destination.files_.end(); ++it)
+           //   {
+           //      if (it->getName() == name)
+           //      {
+           //         match = true;
+           //      }
+           //      else
+           //      {
+           //         match = false;
+           //      }
+           //   }
+           //   if (match = false)
+           //   {
+           //      for (auto itt = files_.begin(); itt != files_.end(); ++itt)
+           //      {
+           //         destination.files_.push_back(std::move(*itt));
+           //      }
+           //   }
+           return true;
         }

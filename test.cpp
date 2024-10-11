@@ -54,10 +54,12 @@ int main(){
 
     /////////////////////////////////////////////////////////
     Folder folder = Folder("Name");
+    Folder folder2 = Folder("Other");
     folder.addFile(file);
     folder.addFile(file1);
-    folder.removeFile("hello.txt");
+    folder.copyFileTo("hello.txt", folder2);
     folder.display();
+    folder2.display();
     // folder.display();
     return 0;
 }
