@@ -102,7 +102,7 @@ size_t Folder::getSize() const
         {
            for (auto it = files_.begin(); it != files_.end(); ++it)
            {
-              if (it->getName() != new_file.getName())
+              if (it->getName() == new_file.getName())
               {
                  sameName = true;
                  return false;
