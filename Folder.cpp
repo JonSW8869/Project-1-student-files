@@ -126,11 +126,11 @@ size_t Folder::getSize() const
        * @return True if the file was found & successfully deleted. 
        */
       bool Folder::removeFile(const std::string& name){
-         for(int i = 0; i < getSize(); i++)
+         for (auto it = files_.begin(); it != files_.end(); ++it)
          {
-            if(files_[i].getName() == name)
+            if (it->getName() == name)
             {
-               files_.erase(files_.begin() + i);
+               files_.erase(it);
                return true;
             }
          }

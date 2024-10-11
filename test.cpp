@@ -28,7 +28,7 @@
 int main(){
     // File file = File("symbol!txt"); // throw error
     File file = File("hello", "content");
-    // File file1 = File("also.f1n3");
+    File file1 = File("also.f1n3");
     // File file2 = File(file);
 
     // std::cout << file.getName() << std::endl;
@@ -55,6 +55,8 @@ int main(){
     /////////////////////////////////////////////////////////
     Folder folder = Folder("Name");
     folder.addFile(file);
+    folder.addFile(file1);
+    folder.removeFile("hello.txt");
     folder.display();
     // folder.display();
     return 0;
