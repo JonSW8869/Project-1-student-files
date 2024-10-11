@@ -97,33 +97,24 @@ size_t Folder::getSize() const
        */
      bool Folder::addFile(File &new_file)
      {
-        for (int i = 0; i < files_.size(); i++)
+        bool sameName = false;
+        if (new_file.getName() != "")
         {
-           if (files_[i].getName() != new_file.getName())
+           for (auto it = files_.begin(); it != files_.end(); ++it)
            {
-              // File temp = File(new_file);
-              files_.push_back(new_file);
+              if (it->getName() != new_file.getName())
+              {
+                 sameName = true;
+                 return false;
+              }
+           }
+           if (sameName == false)
+           {
+              files_.push_back(std::move(new_file));
               return true;
            }
         }
         return false;
-        // if(new_file.getName() == "")
-        // {
-        //    return false;
-        // }
-        // for(int i = 0; i < getSize(); i++)
-        // {
-        //    if(files_[i].getName() == new_file.getName())
-        //    {
-        //       return false;
-        //    }
-        //    else
-        //    {
-        //       files_.push_back(new_file);
-        //       return true;
-        //    }
-        // }
-        // return false;
      }
 
       /**

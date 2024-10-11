@@ -56,6 +56,7 @@ int main(){
     Folder folder = Folder("Name");
     folder.addFile(file);
     folder.display();
+    // folder.display();
     return 0;
 }
 //./main
